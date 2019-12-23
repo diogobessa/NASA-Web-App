@@ -11,11 +11,16 @@ const Header = () => {
             <Logo></Logo>
             <DatePicker></DatePicker>
 
-            <style jsx>
-                {`
-                header{background:red; height:10px; width:100%}
-                `}
-            </style>
+            <style jsx>{`
+                header{
+                    display:flex;
+                    justify-content: space-between;
+                    align-items: stretch;
+                    background:#CCC;
+                    padding:2rem; 
+                    width:100%
+                    }
+                `}</style>
         </header>
     )
 }
