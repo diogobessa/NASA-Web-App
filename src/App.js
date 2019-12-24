@@ -23,7 +23,7 @@ const App =() => {
     <div className="App">
       <Header></Header>
       <MediaOfTheDay apod={media}></MediaOfTheDay>
-    <style jsx>{`
+    <style jsx global>{`
     html {
       font-size: 62.5%; /* Set root font-size to 10px so we can more easily use 'rem's everywhere */
     }
@@ -32,6 +32,12 @@ const App =() => {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
+    :root{
+      --text-align: left;
+      --nasa-blue: #105bd8;
+      --white: #FFF;
+    }
+
     `}</style>
     </div>
 
