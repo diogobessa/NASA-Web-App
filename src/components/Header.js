@@ -1,16 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Logo from './Logo';
 import DatePicker from 'react-datepicker';
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const Header = () => {
-    const [startDate, setStartDate] = useState(new Date());
+const Header = ({date, changeDatePicker}) => {
+    //const [startDate, setStartDate] = useState(new Date());
+
+    /*useEffect(() => {
+        fetchFunction(startDate);
+    }, [fetchFunction]);*/
 
     return(
         <header>
             <Logo></Logo>
-            <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
+            <DatePicker selected={date} dateFormat="yyyy-MM-dd" onChange={date => changeDatePicker(date)} />
 
             <style jsx>{`
                 header{

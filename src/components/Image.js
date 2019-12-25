@@ -4,7 +4,7 @@ const Image = ({url}) => {
 
     return(
         <React.Fragment>
-            <img src={url} alt="featured image"/>
+            <img src={url} alt="astronomic media of the day"/>
 
             <style jsx>{`
                 

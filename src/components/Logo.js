@@ -3,8 +3,8 @@ import React from 'react'
 const Logo = props => {
     
     return(
-        <React.Fragment>
-            <svg width="auto" height="auto" viewBox="0 0 145 40" {...props}>
+        <div>
+            <svg id="svgLogo" width="100%" viewBox="0 0 145 40" {...props}>
                 <defs xmlns="http://www.w3.org/2000/svg">
                 <clipPath id="prefix__a">
                     <path d="M0 0h145v39H0z" />
@@ -39,14 +39,14 @@ const Logo = props => {
                 />
             </svg>
 
-            <style jsx>{`
+            <style jsx="true">{`
                 
-                svg{
+                svg#svgLogo{
                     max-width: 12rem;
                 }
 
             `}</style>
-      </React.Fragment>
+      </div>
     )
 }
 
