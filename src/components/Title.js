@@ -1,4 +1,5 @@
 import React from 'react';
+import { gteMedium, gteLarge } from '../medias';
 
 const Title = ({content}) => {
     return(
@@ -13,6 +14,12 @@ const Title = ({content}) => {
                     box-sizing: border-box;
                     text-align: var(--text-align);
                     color:var(--white);
+                    font-size:2rem;
+                }
+                @media (${gteMedium}) {
+                    h1 {
+                        font-size:4rem;
+                    }
                 }
             `}</style>
         </h1>

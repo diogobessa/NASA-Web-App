@@ -10,6 +10,7 @@ const Image = ({url}) => {
                 
                 img{
                     max-width: 100vw;
+                    width:100%;
                 }
 
                 `}</style>
