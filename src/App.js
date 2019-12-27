@@ -6,11 +6,34 @@ const App =() => {
 
   const [ media, setMedia ] = useState({title: "", url: "", explanation: ""});
   const [date, setDate] = useState(new Date('December 24, 2019 03:24:00'));
+  let [dateIsInvalid] = useState(false);
+  //let dateIsInvalid;
 
   const API_KEY = "McdzPzQpZs86Qx3IX07YJkJmuOe5GLujB5djINJd";
   const API_URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`
   
+  const createErrorMessage = () => {
+
+    const container = document.getElementById("app");
+
+    if(!document.getElementById("errorElement")){
+      const errorElement = document.createElement("H1");
+            errorElement.id = "errorElement";
+            errorElement.innerText = "Error: select another day!";
+            container.append(errorElement);
+    }
+  }
+
+  const removeErrorMessage = () => {
+    const errorElement = document.getElementById("errorElement");
+    if(errorElement){ 
+      errorElement.parentNode.removeChild(errorElement);
+    }
+  }
+
   const changeDate = date => {
+    removeErrorMessage();
+    dateIsInvalid = false;
     setDate(date);
   }
 
@@ -36,34 +59,22 @@ const App =() => {
         })
         .catch( error => {                       
           console.log('Request failed', error);
-          date.setDate(date.getDate()-1);
+          createErrorMessage();
+          console.log("dateIsInvalid", dateIsInvalid);
+          dateIsInvalid = true;
+          console.log("dateIsInvalid", dateIsInvalid);
         });
-      if(response){
-        const errorElement = document.getElementById("errorElement");
-        if(errorElement){ 
-          errorElement.parentNode.removeChild(errorElement);
-        }
+      if(response){  
         setMedia(response);
-
-
-      }else{
-        const errorElement = document.createElement("H1");
-        const container = document.getElementById("app");
-        errorElement.id = 'errorElement';
-        container.append(errorElement);
-        errorElement.innerText = "Error! Select another date";
-
-        
       }
-      console.log(response);
     }
 
     fetchAPOD(date);
-  }, [date]);
+  }, [date, dateIsInvalid]);
 
   return (
     <div className="App" id="app">
-      <Header date={date} changeDatePicker={changeDate}></Header>
+      <Header date={date} changeDatePicker={changeDate} error={dateIsInvalid}></Header>
       <MediaOfTheDay apod={media}></MediaOfTheDay>
       <style jsx global>{`
           html {

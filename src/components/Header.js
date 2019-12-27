@@ -5,7 +5,17 @@ import DatePicker from 'react-datepicker';
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const Header = ({date, changeDatePicker}) => {
+const Header = ({date, changeDatePicker, error}) => {
+    let datePickerClass = "nasaDatePicker";
+    console.log("error", error);
+    console.log("render header");
+    if(error){
+        datePickerClass += " invalidDate";
+    }
+
+    useEffect(() => {
+        console.log("error", error);
+    }, [error])
     //const [startDate, setStartDate] = useState(new Date());
 
     /*useEffect(() => {
@@ -19,7 +29,7 @@ const Header = ({date, changeDatePicker}) => {
                 selected={date} 
                 dateFormat="yyyy-MM-dd" 
                 onChange={date => changeDatePicker(date)} 
-                className="nasaDatePicker"
+                className={datePickerClass}
             />
 
             <style jsx>{`
@@ -37,6 +47,10 @@ const Header = ({date, changeDatePicker}) => {
 
                 .nasaDatePicker{
                     width:8rem;
+                }
+
+                .nasaDatePicker.invalidDate{
+                    border:2px solid blue !important;
                 }
 
                 .react-datepicker__input-container > input{
