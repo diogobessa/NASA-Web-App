@@ -6,13 +6,12 @@ const App =() => {
 
   const [ media, setMedia ] = useState({title: "", url: "", explanation: ""});
   const [date, setDate] = useState(new Date('December 24, 2019 03:24:00'));
-  let [dateIsInvalid] = useState(false);
-  //let dateIsInvalid;
+  const [dateIsInvalid, setDateIsInvalid] = useState(false);
 
   const API_KEY = "McdzPzQpZs86Qx3IX07YJkJmuOe5GLujB5djINJd";
   const API_URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`
   
-  const createErrorMessage = () => {
+  /*const createErrorMessage = () => {
 
     const container = document.getElementById("app");
 
@@ -29,11 +28,9 @@ const App =() => {
     if(errorElement){ 
       errorElement.parentNode.removeChild(errorElement);
     }
-  }
+  }*/
 
   const changeDate = date => {
-    removeErrorMessage();
-    dateIsInvalid = false;
     setDate(date);
   }
 
@@ -52,17 +49,14 @@ const App =() => {
       const response = await fetch(FETCH_URL)
       .then(res => {
           if(res.ok){
+            setDateIsInvalid(false);
             return res.json()
           }
 
           throw new Error("APOD not available. Choose another day.");
         })
         .catch( error => {                       
-          console.log('Request failed', error);
-          createErrorMessage();
-          console.log("dateIsInvalid", dateIsInvalid);
-          dateIsInvalid = true;
-          console.log("dateIsInvalid", dateIsInvalid);
+          setDateIsInvalid(true);
         });
       if(response){  
         setMedia(response);
