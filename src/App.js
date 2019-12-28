@@ -58,7 +58,8 @@ const App =() => {
         .catch( error => {                       
           setDateIsInvalid(true);
         });
-      if(response){  
+      if(response){
+        console.log(response); 
         setMedia(response);
       }
     }
