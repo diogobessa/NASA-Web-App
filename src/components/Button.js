@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Button = ({handleClick}) => {
+const Button = ({className, handleClick}) => {
 
     return (
         <React.Fragment>
-            <button className="button" onClick={handleClick}>Feeling Lucky</button>
+            <button className={className} onClick={handleClick}>Feeling Lucky</button>
         </React.Fragment>
         )
 }

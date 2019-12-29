@@ -33,7 +33,7 @@ const Header = ({date, changeDatePicker, error}) => {
     return(
         <header>
             <Logo className="logoWrapper"></Logo>
-            <Button handleClick={randomDate}></Button>
+            <Button className="button" handleClick={randomDate}></Button>
             <DatePicker 
                 selected={date}
                 placeholderText = {placeholderText}
@@ -59,6 +59,10 @@ const Header = ({date, changeDatePicker, error}) => {
                     margin-right: auto;
                 }
 
+                .button{
+                    display:none;
+                }
+
                 .nasaDatePicker{
                     width:8rem;
                 }
@@ -81,6 +85,10 @@ const Header = ({date, changeDatePicker, error}) => {
                 @media(${gteMedium}){
                     .nasaDatePicker{
                         width: auto;
+                    }
+
+                    .button{
+                        display: block;
                     }
                 }
 
