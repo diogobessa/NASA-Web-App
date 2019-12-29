@@ -28,13 +28,7 @@ const MediaOfTheDay = ({apod}) => {
                     }
 
                     .backgroundExtend{
-                        z-index:0;
-                        height: 22rem;
-                        width:100%;
-                        position: absolute;
-                        top:0;
-                        left:0;
-                        background:var(--nasa-blue);
+                        display:none;
                     }
                     @media(${gteMedium}){
                         div.apodWrapper{
@@ -45,6 +39,17 @@ const MediaOfTheDay = ({apod}) => {
                         p{
                             font-size: 2rem;
                             padding: 0 12rem 0 2rem;
+                        }
+
+                        .backgroundExtend{
+                            display: inherit;
+                            z-index:0;
+                            height: 22rem;
+                            width:100%;
+                            position: absolute;
+                            top:0;
+                            left:0;
+                            background:var(--nasa-blue);
                         }
                     }
 

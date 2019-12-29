@@ -1,26 +1,39 @@
 import React, {useEffect, useState} from 'react';
 import { gteMedium } from '../medias';
-import Logo from './Logo';
 import DatePicker from 'react-datepicker';
+import { Logo, Button } from '../components';
 
 import "react-datepicker/dist/react-datepicker.css";
+import { Date } from 'core-js';
 
 const Header = ({date, changeDatePicker, error}) => {
     const errorStatus = useState(false);
     let datePickerClass = "nasaDatePicker";
     let placeholderText = "";
 
-    console.log("error", error);
-    console.log("render header");
     if(error){
         datePickerClass += " invalidDate";
         date = "";
         placeholderText = "select a valid date";
     }
 
+    const randomDate = () => {
+        const excludeDates = [new Date(1995, 5, 17), new Date(1995, 5, 18), new Date(1995, 5, 19)];
+        const min = new Date(1995, 5, 16);
+        const max = new Date();
+        let newDate;
+
+        while(newDate === undefined || excludeDates.includes(newDate)){
+            newDate = new Date(min.getTime() + Math.random() * (max.getTime() - min.getTime()));
+        }
+
+        changeDatePicker(newDate);
+    }
+
     return(
         <header>
-            <Logo></Logo>
+            <Logo className="logoWrapper"></Logo>
+            <Button handleClick={randomDate}></Button>
             <DatePicker 
                 selected={date}
                 placeholderText = {placeholderText}
@@ -32,14 +45,18 @@ const Header = ({date, changeDatePicker, error}) => {
             <style jsx>{`
                 header{
                     display:flex;
-                    justify-content: space-between;
-                    align-items: stretch;
+                    justify-content: flex-end;
+                    align-items: center;
                     background:var(--nasa-blue);
                     padding:2rem; 
                     width:100%;
                     box-sizing:border-box;
                     z-index:100;
                     position:relative;
+                }
+
+                .logoWrapper{
+                    margin-right: auto;
                 }
 
                 .nasaDatePicker{

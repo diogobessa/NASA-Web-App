@@ -1,9 +1,9 @@
 import React from 'react'
 
 const Logo = props => {
-    
+    console.log(props);
     return(
-        <div>
+        <div className={props.className}>
             <svg id="svgLogo" width="100%" viewBox="0 0 145 40" {...props}>
                 <defs xmlns="http://www.w3.org/2000/svg">
                 <clipPath id="prefix__a">
