@@ -28,6 +28,7 @@ const Header = ({date, changeDatePicker, randomDate, error}) => {
                 dateFormat="yyyy-MM-dd" 
                 onChange={date => changeDatePicker(date)} 
                 className={datePickerClass}
+                popperPlacement="bottom-end"
             />
 
             <style jsx>{`
