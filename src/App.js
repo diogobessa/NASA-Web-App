@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Header, MediaOfTheDay } from './components';
+import { Header, MediaOfTheDay, Button } from './components';
+import { gteMedium } from './medias';
 
 const App =() => {
 
@@ -32,6 +33,19 @@ const App =() => {
 
   const changeDate = date => {
     setDate(date);
+  }
+
+  const randomDate = () => {
+    const excludeDates = [new Date(1995, 5, 17), new Date(1995, 5, 18), new Date(1995, 5, 19)];
+    const min = new Date(1995, 5, 16);
+    const max = new Date();
+    let newDate;
+
+    while(newDate === undefined || excludeDates.includes(newDate)){
+        newDate = new Date(min.getTime() + Math.random() * (max.getTime() - min.getTime()));
+    }
+
+    changeDate(newDate);
   }
 
   const apiDateFormat = date => {
@@ -69,8 +83,9 @@ const App =() => {
 
   return (
     <div className="App" id="app">
-      <Header date={date} changeDatePicker={changeDate} error={dateIsInvalid}></Header>
+      <Header date={date} changeDatePicker={changeDate} randomDate={randomDate} error={dateIsInvalid}></Header>
       <MediaOfTheDay apod={media}></MediaOfTheDay>
+      <Button className="mobile-fl-button" handleClick={randomDate}></Button>
       <style jsx global>{`
           html {
             font-size: 62.5%; /* Set root font-size to 10px so we can more easily use 'rem's everywhere */
@@ -89,6 +104,17 @@ const App =() => {
           #errorElement{
             background:red;
             position: relative;
+          }
+
+          .mobile-fl-button{
+            width:100%;
+            display:block;
+          }
+
+          @media(${gteMedium}){
+            .mobile-fl-button{
+                display: none;
+            }
           }
       `}</style>
     </div>

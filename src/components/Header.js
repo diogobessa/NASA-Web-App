@@ -6,7 +6,7 @@ import { Logo, Button } from '../components';
 import "react-datepicker/dist/react-datepicker.css";
 import { Date } from 'core-js';
 
-const Header = ({date, changeDatePicker, error}) => {
+const Header = ({date, changeDatePicker, randomDate, error}) => {
     const errorStatus = useState(false);
     let datePickerClass = "nasaDatePicker";
     let placeholderText = "";
@@ -17,23 +17,11 @@ const Header = ({date, changeDatePicker, error}) => {
         placeholderText = "select a valid date";
     }
 
-    const randomDate = () => {
-        const excludeDates = [new Date(1995, 5, 17), new Date(1995, 5, 18), new Date(1995, 5, 19)];
-        const min = new Date(1995, 5, 16);
-        const max = new Date();
-        let newDate;
-
-        while(newDate === undefined || excludeDates.includes(newDate)){
-            newDate = new Date(min.getTime() + Math.random() * (max.getTime() - min.getTime()));
-        }
-
-        changeDatePicker(newDate);
-    }
 
     return(
         <header>
             <Logo className="logoWrapper"></Logo>
-            <Button className="button" handleClick={randomDate}></Button>
+            <Button className="desktop-fl-button" handleClick={randomDate}></Button>
             <DatePicker 
                 selected={date}
                 placeholderText = {placeholderText}
@@ -59,7 +47,7 @@ const Header = ({date, changeDatePicker, error}) => {
                     margin-right: auto;
                 }
 
-                .button{
+                .desktop-fl-button{
                     display:none;
                 }
 
@@ -87,7 +75,7 @@ const Header = ({date, changeDatePicker, error}) => {
                         width: auto;
                     }
 
-                    .button{
+                    .desktop-fl-button{
                         display: block;
                     }
                 }
