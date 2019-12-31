@@ -84,8 +84,10 @@ const App =() => {
   return (
     <div className="App" id="app">
       <Header date={date} changeDatePicker={changeDate} randomDate={randomDate} error={dateIsInvalid}></Header>
-      <MediaOfTheDay apod={media}></MediaOfTheDay>
-      <Button className="mobile-fl-button" handleClick={randomDate}></Button>
+      <main>
+        <MediaOfTheDay apod={media}></MediaOfTheDay>
+        <Button className="mobile-fl-button" handleClick={randomDate}></Button>
+      </main>
       <style jsx global>{`
           html {
             font-size: 62.5%; /* Set root font-size to 10px so we can more easily use 'rem's everywhere */
@@ -94,6 +96,9 @@ const App =() => {
             min-width: 32rem;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+          }
+          main{
+            position: relative;
           }
           :root{
             --text-align: left;
@@ -109,6 +114,20 @@ const App =() => {
           .mobile-fl-button{
             width:100%;
             display:block;
+            
+            border-radius: 0px;
+            padding:1.6rem;
+            border:none;
+            box-sizing: border-box;
+            background-color: red;
+            color:#FFF;
+            font-weight: 900;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 9999;
+            text-transform: uppercase;
+            font-size:1.2rem;
           }
 
           @media(${gteMedium}){

@@ -4,7 +4,7 @@ import Image from './Image';
 import { gteMedium } from '../medias';
 const MediaOfTheDay = ({apod}) => {
     return(
-        <main>
+        <React.Fragment>
             <div className="backgroundExtend"></div>
             <div className="apodWrapper">
                 <Title content={apod.title}></Title>
@@ -15,16 +15,14 @@ const MediaOfTheDay = ({apod}) => {
                     p{
                         font-size: 1.5rem;
                         padding: 2rem;
-                        text-align: left;                
-                    }
-
-                    main{
-                        position: relative;
-                    }   
+                        text-align: left;
+                        margin-bottom: 0;               
+                    } 
 
                     .apodWrapper{
                         z-index:2;
                         position: relative;
+                        margin-bottom:4rem;
                     }
 
                     .backgroundExtend{
@@ -55,7 +53,7 @@ const MediaOfTheDay = ({apod}) => {
 
                 `}</style>
             </div>
-        </main>
+        </React.Fragment>
     )
 }
 
