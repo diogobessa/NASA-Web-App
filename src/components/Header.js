@@ -44,12 +44,28 @@ const Header = ({date, changeDatePicker, randomDate, error}) => {
                     position:relative;
                 }
 
+                header > *{
+                    margin-left: 2rem;
+                }
+
                 .logoWrapper{
+                    margin-left:0;
                     margin-right: auto;
                 }
 
                 .desktop-fl-button{
+                    padding:1rem 1.4rem;
+                    font-weight: 600;
+                    font-size: 1.24rem;
+                    border-radius:0.18rem;
+                    text-align:center;
+                    cursor:pointer;
+                    border:none;
                     display:none;
+                    background-color: red;
+                    color:#FFF;
+                    text-transform: uppercase;
+                    font-weight: 900;
                 }
 
                 .nasaDatePicker{

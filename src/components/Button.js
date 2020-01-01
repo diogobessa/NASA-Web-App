@@ -4,7 +4,7 @@ const Button = ({className, handleClick}) => {
 
     return (
         <React.Fragment>
-            <button className={className} onClick={handleClick}>Feeling Lucky</button>
+            <button type="button" className={className} onClick={handleClick}>Feeling Lucky</button>
         </React.Fragment>
         )
 }
