@@ -25,7 +25,10 @@ const Header = ({date, changeDatePicker, randomDate, error}) => {
             <DatePicker 
                 selected={date}
                 placeholderText = {placeholderText}
-                dateFormat="yyyy-MM-dd" 
+                dateFormat="yyyy-MM-dd"
+                maxDate={new Date()}
+                minDate={new Date(1995, 5, 16)}
+                excludeDates={[new Date(1995, 5, 17), new Date(1995, 5, 18), new Date(1995, 5, 19)]}
                 onChange={date => changeDatePicker(date)} 
                 className={datePickerClass}
                 popperPlacement="bottom-end"
