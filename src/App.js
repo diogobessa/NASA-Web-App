@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Header, MediaOfTheDay, Button } from './components';
+import { Header, Footer, MediaOfTheDay, Button } from './components';
 import { gteMedium } from './medias';
 
 const App =() => {
 
   const [ media, setMedia ] = useState({title: "", url: "", explanation: ""});
-  const [date, setDate] = useState(new Date('December 24, 2019 03:24:00'));
+  const [date, setDate] = useState(new Date());
   const [dateIsInvalid, setDateIsInvalid] = useState(false);
 
   const API_KEY = "McdzPzQpZs86Qx3IX07YJkJmuOe5GLujB5djINJd";
@@ -88,6 +88,7 @@ const App =() => {
         <MediaOfTheDay apod={media}></MediaOfTheDay>
         <Button className="mobile-fl-button" handleClick={randomDate}></Button>
       </main>
+      <Footer></Footer>
       <style jsx global>{`
           html {
             font-size: 62.5%; /* Set root font-size to 10px so we can more easily use 'rem's everywhere */
