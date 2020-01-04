@@ -69,6 +69,7 @@ const Header = ({date, changeDatePicker, randomDate, error}) => {
                     color:#FFF;
                     text-transform: uppercase;
                     font-weight: 900;
+                    outline:none;
                 }
 
                 .nasaDatePicker{
