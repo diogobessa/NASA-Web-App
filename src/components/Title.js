@@ -9,7 +9,7 @@ const Title = ({content}) => {
             <style jsx>{`
                 h1{
                     background: var(--nasa-blue);
-                    padding:2rem 8rem 2rem 2rem;
+                    padding:2rem 8rem 2rem 0rem;
                     margin:0;
                     box-sizing: border-box;
                     text-align: var(--text-align);

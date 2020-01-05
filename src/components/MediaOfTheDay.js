@@ -36,7 +36,7 @@ const MediaOfTheDay = ({apod}) => {
 
                         p{
                             font-size: 2rem;
-                            padding: 0 12rem 0 2rem;
+                            padding: 0 12rem 0 0rem;
                         }
 
                         .backgroundExtend{
